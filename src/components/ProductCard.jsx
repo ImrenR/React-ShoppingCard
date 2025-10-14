@@ -2,11 +2,11 @@ import React from "react";
 import axios from "axios";
 // parseFloat=kullanıcı tam sayı bile girse virgüllü sayıya çevirir,ekrana öyle basar
 const ProductCard = ({urun}) => {
- 
+ const { name, id, image,dampingRate, amount, price} =urun
 
   const BASE_URL = "https://63f4e5583f99f5855db9e941.mockapi.io/products";
 
- 
+  
 
   
 
@@ -16,7 +16,7 @@ const ProductCard = ({urun}) => {
       <div className="row g-0">
         <div className="col-md-5">
           <img
-            src={""}
+            src={image}
             className="w-100 h-100 rounded-start"
             alt={"name"}
             title={""}
@@ -27,14 +27,14 @@ const ProductCard = ({urun}) => {
         <div className="col-md-7">
           <div className="card-body">
             <h5 className="card-title" role="button">
-              {""}
+              {name}
             </h5>
             <div className="product-price d-flex flex-wrap align-items-center">
-              <span className="damping-price text-warning h2">
+              <span className="damping-price text-warning h2"> {price*dampingRate}
                 $ 
               </span>
               <span className="h5 text-dark ms-2 text-decoration-line-through">
-               
+               {price}
               </span>
             </div>
             <div className="border border-1 border-dark shadow-lg d-flex justify-content-center p-2">
@@ -45,7 +45,7 @@ const ProductCard = ({urun}) => {
                   <i className="fas fa-minus"></i>
                 </button>
                 <p className="d-inline mx-4" id="product-quantity">
-                  {}
+                  {amount}
                 </p>
                 <button
               
@@ -65,7 +65,7 @@ const ProductCard = ({urun}) => {
             <div className="mt-2">
               Product Total: $
               <span className="product-line-price">
-              
+              {amount*dampingRate*price}
               </span>
             </div>
           </div>

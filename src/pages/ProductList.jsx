@@ -1,26 +1,20 @@
-
 import ProductCard from "../components/ProductCard";
 import CardTotal from "../components/CardTotal";
 import { useEffect, useState } from "react";
 import axios from "axios";
 const ProductList = () => {
+  const [products, setProducts] = useState([]);
 
-const [products, setProducts] = useState([])
+  const BASE_URL = "https://63f4e5583f99f5855db9e941.mockapi.io/products";
 
-  const BASE_URL = "https://63f4e5583f99f5855db9e941.mockapi.io/products";;
+  const getData = async () => {
+    const { data } = await axios(BASE_URL);
+    setProducts(data);
+  };
 
-const getData = async()=> {
-const {data} =  await axios(BASE_URL) 
-setProducts(data)
-}
- 
-useEffect(() => {
-getData()
-}, [])
-
-
-
-  
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <div className="container mt-3">
@@ -30,12 +24,12 @@ getData()
         ) : (
           <>
             <article id="product-panel" className="col-md-6">
-              {[products].map((urun) => (
+              {products.map((urun) => (
                 <ProductCard urun={urun} />
               ))}
             </article>
             <article>
-              <CardTotal  />
+              <CardTotal />
             </article>
           </>
         )}
