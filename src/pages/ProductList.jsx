@@ -25,7 +25,7 @@ const ProductList = () => {
           <>
             <article id="product-panel" className="col-md-6">
               {products.map((urun) => (
-                <ProductCard urun={urun} />
+                <ProductCard urun={urun} getData={getData}/>
               ))}
             </article>
             <article>

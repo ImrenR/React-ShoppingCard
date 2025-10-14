@@ -1,7 +1,6 @@
-import React from "react";
-import axios from "axios";
+
 // parseFloat=kullanıcı tam sayı bile girse virgüllü sayıya çevirir,ekrana öyle basar
-const ProductCard = ({ urun }) => {
+const ProductCard = ({ urun, getData }) => {
   const { name, id, image, dampingRate, amount, price } = urun;
 
   const BASE_URL = "https://63f4e5583f99f5855db9e941.mockapi.io/products";
@@ -15,6 +14,7 @@ const ProductCard = ({ urun }) => {
             className="w-100 h-100 rounded-start"
             alt={"name"}
             title={""}
+            onClick={(e)=>(setValue())}
           />
         </div>
         <div className="col-md-7">
