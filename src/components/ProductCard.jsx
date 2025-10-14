@@ -1,10 +1,11 @@
+import { useNavigate } from "react-router-dom";
 
 // parseFloat=kullanıcı tam sayı bile girse virgüllü sayıya çevirir,ekrana öyle basar
 const ProductCard = ({ urun, getData }) => {
   const { name, id, image, dampingRate, amount, price } = urun;
 
   const BASE_URL = "https://63f4e5583f99f5855db9e941.mockapi.io/products";
-
+const navigate=useNavigate()
   return (
     <div className="card shadow-lg mb-3">
       <div className="row g-0">
@@ -14,7 +15,7 @@ const ProductCard = ({ urun, getData }) => {
             className="w-100 h-100 rounded-start"
             alt={"name"}
             title={""}
-            onClick={(e)=>(setValue())}
+            onClick={()=>navigate("/update-product", {state:{urun}})}
           />
         </div>
         <div className="col-md-7">
