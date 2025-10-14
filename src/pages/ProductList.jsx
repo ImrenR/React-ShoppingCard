@@ -29,7 +29,7 @@ const ProductList = () => {
               ))}
             </article>
             <article>
-              <CardTotal />
+              <CardTotal products={products} />
             </article>
           </>
         )}
