@@ -13,13 +13,23 @@ const ProductCard = ({ urun, getData }) => {
     await axios.delete(`${BASE_URL}/${id}`);
 
     getData();
-
-
   };
 
-  const reduceAmount = ()=> {
-    
-  }
+  const reduceAmount = async () => {
+    if (amount > 0) {
+      await axios.put(`${BASE_URL}/${id}`, { ...urun, amount: amount - 1 });
+
+      getData();
+    } else {
+      alert ("Do you want to delete it ?")
+      deleteItem()
+    }
+  };
+  const increaseAmount = async () => {
+    await axios.put(`${BASE_URL}/${id}`, { ...urun, amount: amount + 1 });
+
+    getData();
+  };
 
   return (
     <div className="card shadow-lg mb-3">
@@ -48,17 +58,19 @@ const ProductCard = ({ urun, getData }) => {
             </div>
             <div className="border border-1 border-dark shadow-lg d-flex justify-content-center p-2">
               <div className="quantity-controller">
-                <button 
-                onClick={reduceAmount}
-                className="btn btn-secondary btn-sm">
+                <button
+                  onClick={reduceAmount}
+                  className="btn btn-secondary btn-sm"
+                >
                   <i className="fas fa-minus"></i>
                 </button>
                 <p className="d-inline mx-4" id="product-quantity">
                   {amount}
                 </p>
                 <button
-                onClick={increaseAmount}
-                 className="btn btn-secondary btn-sm">
+                  onClick={increaseAmount}
+                  className="btn btn-secondary btn-sm"
+                >
                   <i className="fas fa-plus"></i>
                 </button>
               </div>
