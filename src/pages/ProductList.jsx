@@ -7,13 +7,18 @@ const ProductList = () => {
 
 const [products, setProducts] = useState([])
 
-  const BASE_URL = "https://68ee1779df2025af780251b8.mockapi.io/Shopping";
+  const BASE_URL = "https://63f4e5583f99f5855db9e941.mockapi.io/products";;
 
+const getData = async()=> {
+const {data} =  await axios(BASE_URL) 
+setProducts(data)
+}
+ 
 useEffect(() => {
- axios
- .get(BASE_URL)
- .then((res)=> setProducts(res.data))
+getData()
 }, [])
+
+
 
   
 
