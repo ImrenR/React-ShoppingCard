@@ -1,5 +1,5 @@
-import React from "react";
 
+import profilePic from "../assets/IMG_7088.jpg"; 
 const About = () => {
   return (
     <div className="container mt-5">
@@ -8,7 +8,7 @@ const About = () => {
           <div className="card p-3 py-4">
             <div className="text-center">
               <img
-                src="https://ca.slack-edge.com/TMPTG1GNP-U036J7Z9F0T-47d568f3b26c-512"
+                src={profilePic}
                 width={100}
                 className="rounded-circle"
                 alt="a"
@@ -18,7 +18,7 @@ const About = () => {
               <span className="bg-secondary p-1 px-4 rounded text-white">
                 Pro
               </span>
-              <h5 className="mt-2 mb-0">Ashley Miller</h5>
+              <h5 className="mt-2 mb-0">Imren Rahbay</h5>
               <span>Fullstack Developer</span>
               <div className="px-4 mt-1">
                 <p className="fonts">
