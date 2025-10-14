@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const NewProduct = () => {
 
@@ -13,11 +14,15 @@ const NewProduct = () => {
  }
  const [formveri, setFormveri] = useState(initialValue)
  
+ const navigate = useNavigate()
+
 const handleSubmit =async (e)=> {
 e.preventDefault()
 await axios.post("https://63f4e5583f99f5855db9e941.mockapi.io/products", formveri)
  
 setFormveri(initialValue)
+
+navigate("/products") // as soon user submit this page it will throw us to the productList
 
 }
   return (
