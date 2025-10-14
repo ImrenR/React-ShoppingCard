@@ -3,7 +3,7 @@ import ProductCard from "../components/ProductCard";
 import CardTotal from "../components/CardTotal";
 
 const ProductList = () => {
-  const BASE_URL = "https://63f4e5583f99f5855db9e941.mockapi.io/products";
+  const BASE_URL = "https://68ee1779df2025af780251b8.mockapi.io/Shopping";
 
 
   
