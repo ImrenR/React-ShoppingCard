@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 // parseFloat=kullanıcı tam sayı bile girse virgüllü sayıya çevirir,ekrana öyle basar
@@ -5,7 +6,17 @@ const ProductCard = ({ urun, getData }) => {
   const { name, id, image, dampingRate, amount, price } = urun;
 
   const BASE_URL = "https://63f4e5583f99f5855db9e941.mockapi.io/products";
-const navigate=useNavigate()
+
+  const navigate = useNavigate();
+
+  const deleteItem = async () => {
+    await axios.delete(`BASE_URL/${id}`);
+
+    getData();
+    
+
+  };
+
   return (
     <div className="card shadow-lg mb-3">
       <div className="row g-0">
@@ -15,7 +26,7 @@ const navigate=useNavigate()
             className="w-100 h-100 rounded-start"
             alt={"name"}
             title={""}
-            onClick={()=>navigate("/update-product", {state:{urun}})}
+            onClick={() => navigate("/update-product", { state: { urun } })}
           />
         </div>
         <div className="col-md-7">
@@ -25,8 +36,7 @@ const navigate=useNavigate()
             </h5>
             <div className="product-price d-flex flex-wrap align-items-center">
               <span className="damping-price text-warning h2">
-                
-               $ {(price*dampingRate).toFixed(2)}
+                $ {(price * dampingRate).toFixed(2)}
               </span>
               <span className="h5 text-dark ms-2 text-decoration-line-through">
                 {parseFloat(price).toFixed(2)}
@@ -46,7 +56,10 @@ const navigate=useNavigate()
               </div>
             </div>
             <div className="product-removal mt-4">
-              <button className="btn btn-danger btn-sm w-100 remove-product">
+              <button
+                className="btn btn-danger btn-sm w-100 remove-product"
+                onClick={deleteItem}
+              >
                 <i className="fa-solid fa-trash-can me-2"></i>Remove
               </button>
             </div>
