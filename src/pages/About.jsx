@@ -1,5 +1,4 @@
-
-import profilePic from "../assets/IMG_7088.jpg"; 
+import profilePic from "../assets/IMG_7088.jpg";
 const About = () => {
   return (
     <div className="container mt-5">
@@ -22,11 +21,11 @@ const About = () => {
               <span>Fullstack Developer</span>
               <div className="px-4 mt-1">
                 <p className="fonts">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
-                  voluptatem dolore sint quo assumenda eum voluptate aut, sequi
-                  rem cumque facilis asperiores possimus porro, facere eveniet!
-                  Tempora non cupiditate in quis adipisci. Distinctio, deleniti
-                  dolores?
+                  I'm a full stack developer based in Porto,Portugal and skilled
+                  in JavaScript and TypeScript. I work with technologies like
+                  React.js, Next.js, Node.js, Express.js, Redux, Tailwind CSS,
+                  PostgreSQL, MongoDB, and tools such as GitHub, Firebase,
+                  Postman, and Cypress.
                 </p>
               </div>
               <ul className="social-list">
@@ -50,7 +49,7 @@ const About = () => {
                 <button className="btn btn-outline-primary px-4">
                   <a
                     className="text-decoration-none text-black "
-                    href="https://github.com/AshleyMiller79"
+                    href="https://www.linkedin.com/in/imrenr/"
                     target="true"
                   >
                     Message
@@ -59,7 +58,7 @@ const About = () => {
                 <button className="btn btn-primary px-4 ms-3">
                   <a
                     className="text-decoration-none text-white"
-                    href="https://github.com/anthonyharold67"
+                    href="https://github.com/ImrenR"
                     target="true"
                   >
                     Contact
