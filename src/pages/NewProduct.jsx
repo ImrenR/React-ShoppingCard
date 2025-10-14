@@ -1,8 +1,15 @@
+import { useState } from "react";
 
 
 const NewProduct = () => {
 
-
+ const [formveri, setFormveri] = useState({
+  name: "",
+  price: 0,
+  amount: 0,
+  image: "",
+  dampingRate: 0.8,
+ })
  
   return (
     <div className="container">
