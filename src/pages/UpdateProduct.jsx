@@ -1,13 +1,14 @@
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 
 
 
 const UpdateProduct = () => {
 
+const {state:{urun}} = useLocation()
 
-
-
-
+const [editUrun, setEditUrun] = useState(urun)
 
   return (
     <div className="container">
@@ -26,9 +27,9 @@ const UpdateProduct = () => {
               type="text"
               className="form-control"
               name="name"
-              value={""}
-              
+              value={urun.name}
               required
+             onChange={(e)=>setEditUrun({...editUrun, name:e.target.value})}
             />
           </div>
           <div className="mb-3">
@@ -39,9 +40,9 @@ const UpdateProduct = () => {
               type="number"
               className="form-control"
               name="price"
-              value={""}
+              value={urun.price}
               required
-            
+                 onChange={(e)=>setEditUrun({...editUrun, price:e.target.value})}
             />
           </div>
           <div className="mb-3">
@@ -52,9 +53,9 @@ const UpdateProduct = () => {
               type="number"
               className="form-control"
               name="amount"
-              value={""}
+              value={urun.amount}
               required
-            
+                 onChange={(e)=>setEditUrun({...editUrun, amount:e.target.value})}
             />
           </div>
           <label htmlFor="add-image" className="form-label">
@@ -68,10 +69,10 @@ const UpdateProduct = () => {
               type="url"
               className="form-control"
               name="image"
-              value={""}
+              value={urun.image}
               aria-describedby="basic-addon3"
               required
-            
+                 onChange={(e)=>setEditUrun({...editUrun, image:e.target.value})}
             />
           </div>
           <div className="text-center">
