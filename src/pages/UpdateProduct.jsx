@@ -1,15 +1,24 @@
+import axios from "axios";
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
-
-
-
+import { useLocation, useNavigate } from "react-router-dom";
 
 const UpdateProduct = () => {
+  const {
+    state: { urun },
+  } = useLocation();
 
-const {state:{urun}} = useLocation()
+  const [editUrun, setEditUrun] = useState(urun);
+  const navigate = useNavigate();
 
-const [editUrun, setEditUrun] = useState(urun)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await axios.put(
+      `https://63f4e5583f99f5855db9e941.mockapi.io/products/${urun.id}`,
+      editUrun
+    );
 
+    navigate("/products");
+  };
   return (
     <div className="container">
       <article
@@ -18,7 +27,7 @@ const [editUrun, setEditUrun] = useState(urun)
       >
         <h1 className="text-center">update Product</h1>
 
-        <form  className="p-2">
+        <form onSubmit={handleSubmit} className="p-2">
           <div className="mb-3">
             <label htmlFor="add-name" className="form-label">
               Product Name
@@ -27,9 +36,11 @@ const [editUrun, setEditUrun] = useState(urun)
               type="text"
               className="form-control"
               name="name"
-              value={urun.name}
+              value={editUrun.name}
               required
-             onChange={(e)=>setEditUrun({...editUrun, name:e.target.value})}
+              onChange={(e) =>
+                setEditUrun({ ...editUrun, name: e.target.value })
+              }
             />
           </div>
           <div className="mb-3">
@@ -40,9 +51,11 @@ const [editUrun, setEditUrun] = useState(urun)
               type="number"
               className="form-control"
               name="price"
-              value={urun.price}
+              value={editUrun.price}
               required
-                 onChange={(e)=>setEditUrun({...editUrun, price:e.target.value})}
+              onChange={(e) =>
+                setEditUrun({ ...editUrun, price: e.target.value })
+              }
             />
           </div>
           <div className="mb-3">
@@ -53,9 +66,11 @@ const [editUrun, setEditUrun] = useState(urun)
               type="number"
               className="form-control"
               name="amount"
-              value={urun.amount}
+              value={editUrun.amount}
               required
-                 onChange={(e)=>setEditUrun({...editUrun, amount:e.target.value})}
+              onChange={(e) =>
+                setEditUrun({ ...editUrun, amount: e.target.value })
+              }
             />
           </div>
           <label htmlFor="add-image" className="form-label">
@@ -69,10 +84,12 @@ const [editUrun, setEditUrun] = useState(urun)
               type="url"
               className="form-control"
               name="image"
-              value={urun.image}
+              value={editUrun.image}
               aria-describedby="basic-addon3"
               required
-                 onChange={(e)=>setEditUrun({...editUrun, image:e.target.value})}
+              onChange={(e) =>
+                setEditUrun({ ...editUrun, image: e.target.value })
+              }
             />
           </div>
           <div className="text-center">
