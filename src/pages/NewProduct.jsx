@@ -1,16 +1,24 @@
 import { useState } from "react";
-
+import axios from "axios";
 
 const NewProduct = () => {
 
- const [formveri, setFormveri] = useState({
+
+  const initialValue = {
   name: "",
   price: 0,
   amount: 0,
   image: "",
   dampingRate: 0.8,
- })
+ }
+ const [formveri, setFormveri] = useState(initialValue)
  
+const handleSubmit =async (e)=> {
+e.preventDefault()
+await axios.post("https://63f4e5583f99f5855db9e941.mockapi.io/products")
+
+
+}
   return (
     <div className="container">
       <article
@@ -19,7 +27,7 @@ const NewProduct = () => {
       >
         <h1 className="text-center"> New Product</h1>
 
-        <form className="p-2">
+        <form onSubmit={handleSubmit} className="p-2">
           <div className="mb-3">
             <label htmlFor="add-name" className="form-label">
               Product Name
@@ -28,9 +36,9 @@ const NewProduct = () => {
               type="text"
               className="form-control"
               name="name"
-              value={""}
+              value={formveri.name}
               required
-            
+            onChange={(e)=>setFormveri({...formveri, name: e.target.value})}
             />
           </div>
           <div className="mb-3">
@@ -41,9 +49,9 @@ const NewProduct = () => {
               type="number"
               className="form-control"
               name="price"
-              value={""}
+              value={formveri.price}
               required
-            
+            onChange={(e)=>setFormveri({...formveri, price: e.target.value})}
             />
           </div>
           <div className="mb-3">
@@ -54,9 +62,9 @@ const NewProduct = () => {
               type="number"
               className="form-control"
               name="amount"
-              value={""}
+              value={formveri.amount}
               required
-           
+           onChange={(e)=>setFormveri({...formveri, amount: e.target.value})}
             />
           </div>
           <label htmlFor="add-image" className="form-label">
@@ -70,10 +78,10 @@ const NewProduct = () => {
               type="url"
               className="form-control"
               name="image"
-              value={""}
+              value={formveri.image}
               aria-describedby="basic-addon3"
               required
-             
+             onChange={(e)=>setFormveri({...formveri, image: e.target.value})}
             />
           </div>
           <div className="text-center">
