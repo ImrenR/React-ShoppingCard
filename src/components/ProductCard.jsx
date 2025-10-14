@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 // parseFloat=kullanıcı tam sayı bile girse virgüllü sayıya çevirir,ekrana öyle basar
-const ProductCard = () => {
+const ProductCard = ({urun}) => {
  
 
   const BASE_URL = "https://63f4e5583f99f5855db9e941.mockapi.io/products";
