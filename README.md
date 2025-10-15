@@ -1,6 +1,6 @@
 # React -Shopping Card
 
-## Watch to see 
+## Watch to see the project
 
 https://github.com/user-attachments/assets/8cbd6442-c47a-4f41-b2f2-78306295ab05
 
